@@ -7,16 +7,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: generics_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/generics_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/generics/generics_{{ version }}.tar.gz
   sha256: 71b3d1b719ce89e71dd396ac8bc6aa5f1cd99bbbf03faff61dfbbee32fec6176
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1000
+  number: 1001
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -24,6 +22,7 @@ build:
 
 requirements:
   build:
+
   host:
     - r-base
   run:
@@ -51,3 +50,24 @@ extra:
     - cbrueffer
     - dbast
     - apcamargo
+
+# Package: generics
+# Version: 0.0.2
+# Title: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+# Description: In order to reduce potential package dependencies and conflicts,  generics provides a number of commonly used S3 generics.
+# Authors@R: c( person("Max", "Kuhn", , "max@rstudio.com", c("aut", "cre")), person("Hadley", "Wickham", , "hadley@rstudio.com", "aut"), person("Davis", "Vaughan", , "davis@rstudio.com", "aut"), person("RStudio", role = "cph"))
+# License: GPL-2
+# Encoding: UTF-8
+# LazyData: true
+# RoxygenNote: 6.1.1
+# URL: https://github.com/r-lib/generics
+# BugReports: https://github.com/r-lib/generics
+# Depends: R (>= 3.1)
+# Suggests: covr, pkgload, testthat, tibble
+# Imports: methods
+# NeedsCompilation: no
+# Packaged: 2018-11-29 13:00:32 UTC; max
+# Author: Max Kuhn [aut, cre], Hadley Wickham [aut], Davis Vaughan [aut], RStudio [cph]
+# Maintainer: Max Kuhn <max@rstudio.com>
+# Repository: CRAN
+# Date/Publication: 2018-11-29 13:20:03 UTC
