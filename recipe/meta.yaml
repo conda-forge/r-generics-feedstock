@@ -1,4 +1,4 @@
-{% set version = '0.0.2' %}
+{% set version = "0.1.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/generics_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/generics/generics_{{ version }}.tar.gz
-  sha256: 71b3d1b719ce89e71dd396ac8bc6aa5f1cd99bbbf03faff61dfbbee32fec6176
+  sha256: ab71d1bdbb66c782364c61cede3c1186d6a94c03635f9af70d926e2c1ac88763
 
 build:
-  merge_build_host: True  # [win]
-  number: 1003
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -36,10 +36,9 @@ test:
 about:
   home: https://github.com/r-lib/generics
   license: GPL-2
-  summary: In order to reduce potential package dependencies and conflicts,  generics provides
-    a number of commonly used S3 generics.
+  summary: In order to reduce potential package dependencies and conflicts,  generics provides a number of commonly used S3 generics.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
