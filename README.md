@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-generics-feed
 
 Home: https://github.com/r-lib/generics
 
-Package license: GPL-2
+Package license: MIT
 
 Summary: In order to reduce potential package dependencies and conflicts,  generics provides a number of commonly used S3 generics.
 
