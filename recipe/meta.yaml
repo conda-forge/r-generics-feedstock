@@ -1,6 +1,5 @@
 {% set version = "0.1.3" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-generics
@@ -13,8 +12,7 @@ source:
   sha256: 75046163bfa8b8a4f4214c1b689e796207f6447182f2e5062cf570302387d053
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
+  number: 3
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -22,7 +20,7 @@ build:
 
 requirements:
   build:
-
+    - {{ posix }}zip               # [win]
   host:
     - r-base
   run:
@@ -35,33 +33,14 @@ test:
 
 about:
   home: https://github.com/r-lib/generics
-  license: GPL-2
+  license: MIT
   summary: In order to reduce potential package dependencies and conflicts,  generics provides a number of commonly used S3 generics.
-  license_family: GPL2
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_family: MIT
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - apcamargo
-
-# Package: generics
-# Version: 0.0.2
-# Title: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
-# Description: In order to reduce potential package dependencies and conflicts,  generics provides a number of commonly used S3 generics.
-# Authors@R: c( person("Max", "Kuhn", , "max@rstudio.com", c("aut", "cre")), person("Hadley", "Wickham", , "hadley@rstudio.com", "aut"), person("Davis", "Vaughan", , "davis@rstudio.com", "aut"), person("RStudio", role = "cph"))
-# License: GPL-2
-# Encoding: UTF-8
-# LazyData: true
-# RoxygenNote: 6.1.1
-# URL: https://github.com/r-lib/generics
-# BugReports: https://github.com/r-lib/generics
-# Depends: R (>= 3.1)
-# Suggests: covr, pkgload, testthat, tibble
-# Imports: methods
-# NeedsCompilation: no
-# Packaged: 2018-11-29 13:00:32 UTC; max
-# Author: Max Kuhn [aut, cre], Hadley Wickham [aut], Davis Vaughan [aut], RStudio [cph]
-# Maintainer: Max Kuhn <max@rstudio.com>
-# Repository: CRAN
-# Date/Publication: 2018-11-29 13:20:03 UTC
